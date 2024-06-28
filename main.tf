@@ -3,13 +3,25 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "website_bucket" {
-  bucket = "my-aws-bucket-terraform-code-pipline-1"
-  acl    = "public-read"
+  bucket = "my-unique-bucket-name-terrafor-code-pipeline-1"
 
   website {
     index_document = "index.html"
     error_document = "error.html"
   }
+
+  tags = {
+    Name = "StaticWebsiteBucket"
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "public_access_block" {
+  bucket = aws_s3_bucket.website_bucket.id
+
+  block_public_acls       = false
+  ignore_public_acls      = false
+  block_public_policy     = false
+  restrict_public_buckets = false
 }
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
