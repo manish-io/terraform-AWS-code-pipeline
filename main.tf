@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "website_bucket" {
-  bucket = "my-unique-bucket-name-terrafor-code-pipeline-1"
+  bucket = "my-unique-bucket-name-terrafor-code-pipeline-1-1"
 
   website {
     index_document = "index.html"
