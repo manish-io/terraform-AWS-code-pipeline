@@ -16,6 +16,7 @@ resource "aws_s3_bucket" "website_bucket" {
 
   provisioner "local-exec" {
     command = "sleep 10"
+  }
 }
 
 resource "aws_s3_bucket_public_access_block" "public_access_block" {
