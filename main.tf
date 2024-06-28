@@ -93,6 +93,7 @@ resource "aws_codepipeline" "website_pipeline" {
         Repo       = "terraform-AWS-code-pipeline"
         Branch     = "main"
         OAuthToken = "*"
+        PollForSourceChanges = "false"
       }
     }
   }
