@@ -85,7 +85,7 @@ resource "aws_codepipeline" "website_pipeline" {
         Owner      = "manish-io"
         Repo       = "terraform-AWS-code-pipeline"
         Branch     = "main"
-        OAuthToken = "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"
+        OAuthToken = "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"
       }
     }
   }
