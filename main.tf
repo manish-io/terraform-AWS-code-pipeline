@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "website_bucket" {
-  bucket = "your-unique-bucket-name"
+  bucket = "my-aws-bucket-terraform-code-pipline-1"
   acl    = "public-read"
 
   website {
@@ -55,7 +55,7 @@ resource "aws_codebuild_project" "build_project" {
 
   source {
     type      = "GITHUB"
-    location  = "https://github.com/your-github-username/your-repo-name"
+    location  = "https://github.com/manish-io/terraform-AWS-code-pipeline.git"
     buildspec = "buildspec.yml"
   }
 
