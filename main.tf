@@ -13,6 +13,9 @@ resource "aws_s3_bucket" "website_bucket" {
   tags = {
     Name = "StaticWebsiteBucket"
   }
+
+  provisioner "local-exec" {
+    command = "sleep 10"
 }
 
 resource "aws_s3_bucket_public_access_block" "public_access_block" {
@@ -39,6 +42,8 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
       }
     ]
   })
+
+  depends_on = [aws_s3_bucket.website_bucket]
 }
 
 resource "aws_iam_role" "codepipeline_role" {
